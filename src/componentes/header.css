@@ -1,0 +1,52 @@
+nav{
+    background: var(--main-gradient-color);
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+}
+.menu{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.menu li {
+    position: relative;
+    margin-right:10px;
+}
+.menu a{
+    color: aliceblue;
+}
+.provincia{
+    width: 100px;
+}
+.dropdown{
+    position: absolute;
+    background: var(--main-color);
+    display: none;
+    width: 200px;
+    padding: 20px;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+}
+.dropdown>li{
+    margin-bottom: 10px;
+}
+/*click menu*/
+.menu li:hover .dropdown{
+    display: flex;
+    flex-direction: column;
+}
+.menu li a:hover {
+    color: var(--hover-color);
+}
+.dropdown>li:hover{
+    transition: 0.3s linear;
+    border-left: 10px solid white;
+}
+/* segundo parte de menu */
+.menu2>li{
+    margin-right: 30px;
+}
