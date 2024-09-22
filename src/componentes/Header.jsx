@@ -7,7 +7,7 @@ const Header = () => {
       
       <nav>
         <ul className='menu'>
-          <li><Link className=''>BSC</Link></li>
+          <li><Link to={"/"} className=''>BSC</Link></li>
           <li className='provincia'>
             <Link>地区</Link>
             <ul className='dropdown'>
@@ -21,12 +21,12 @@ const Header = () => {
           </li>
         </ul>
         <ul className='menu menu2'>
-          <li><Link>热门公司</Link></li>
-          <li><Link>新创公司</Link></li>
-          <li><Link>店铺转让</Link></li>
-          <li><Link>校招</Link></li>
-          <li><Link>活动</Link></li>
-          <li><Link>资讯</Link></li>
+          <li><Link to={"/empresa-popular"}>热门公司</Link></li>
+          <li><Link to={"/empresa-nueva"}>新创公司</Link></li>
+          <li><Link to={"/tienda-intercambio"}>店铺转让</Link></li>
+          <li><Link to={"/puesto-uni"}>校招</Link></li>
+          <li><Link to={"/actividad"}>活动</Link></li>
+          <li><Link to={"/noticias"}>资讯</Link></li>
         </ul>
         <ul className='menu'>
           <li><Link to={"/hiring"}>我要招聘</Link></li>

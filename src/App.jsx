@@ -1,6 +1,7 @@
 import './App.css'
 import Header from "../src/componentes/Header";
 import { Routes,Route } from 'react-router-dom';
+import PaginaHome from './PaginaHome';
 function App() {
 
   return (
@@ -8,7 +9,7 @@ function App() {
     <Header/>
 
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/" element={<PaginaHome/>} />
     </Routes>
     </>
   )

@@ -1,0 +1,20 @@
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel{
+    position: relative;
+    overflow: hidden;
+    width: 50vw;
+    height: 50vh;
+    border: 10px solid;
+}
+.slide{
+    position: absolute;
+}
+.slide>img{
+    width: 100%;
+}
