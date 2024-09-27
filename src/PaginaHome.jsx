@@ -7,50 +7,31 @@ import { useRef } from 'react';
 
 
 const PaginaHome = () => {
-    const images = [
-        'src/img/1.png',
-        'src/img/2.png',
-        'src/img/3.png',
-      ];
-      
-    const carouselRef = useRef(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-  
-    useEffect(() => {
-      const carousel = carouselRef.current;
-      const slides = carousel.querySelectorAll('.slide');
-  
-      gsap.set(slides, { x: '100%' });
-      gsap.set(slides[0], { x: '0%' });
-  
-      const slideWidth = slides[0].offsetWidth;
-  
-      const nextSlide = () => {
-        const nextIndex = (currentIndex + 1) % slides.length;
-        
-        gsap.to(slides[currentIndex], { x: '-100%', duration: 1 });
-        gsap.fromTo(slides[nextIndex], 
-          { x: '100%' },
-          { x: '0%', duration: 1 }
-        );
-  
-        setCurrentIndex(nextIndex);
-      };
-  
-      const interval = setInterval(nextSlide, 3000);
-  
-      return () => clearInterval(interval);
-    }, [currentIndex, images]);
+    const images = ['src/img/1.png','src/img/2.png','src/img/3.png'];
+    
+    const [currentIndex,cambioPosition] =useState(0);
+
+    const nextImage = () => {
+      cambioPosition((index) => (index + 1) % images.length);
+    };
+    const prevImage = () => {
+      cambioPosition((index) => (index - 1 + images.length) % images.length);
+    };
 
   return (
     <main>
-        <div ref={carouselRef} className='carousel'>
+        <div className='carousel'>
             {images.map((image, index) => (
-                <div key={index} className="slide" >
-                    <img src={image} alt={`Slide ${index + 1}`} />
-                </div>
+                <img key={index} src={image} alt={index}
+                style={{
+                  transform: `translateX(${index+2>currentIndex ? (index - currentIndex) * 100 : (currentIndex-index)*100}%)`,
+                  zIndex: index>currentIndex ? -2: index<currentIndex? -3:-1,
+                }}/>
             ))}
         </div>
+        <h1>{currentIndex}</h1>
+        <button onClick={nextImage}>next</button>
+        <button onClick={prevImage}>preve</button>
     </main>
 
   )
